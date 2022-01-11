@@ -58,7 +58,7 @@ public class Main {
 						int id1 = Integer.parseInt(scan.nextLine());
 						for (Kitap kitap : kitaplar) {
 							if (id1 == kitap.getId()) {
-								System.out.println("ID mevcut, değiştir lütfen...");
+								System.out.println("ID mevcut, lütfen değiştirin...");
 								continue ekle;
 							}
 						}
@@ -72,7 +72,7 @@ public class Main {
 						String sayfa1 = scan.nextLine();
 
 						kitaplar.add(new Kitap(id1, ad2, yazar1, yayinevi1, sayfa1));
-						System.out.println("Kitap eklenmiştir..");
+						System.out.println("Kitap eklenmiştir. Sıradaki işlemi seçiniz: ");
 
 						continue menu;
 					}
@@ -86,8 +86,8 @@ public class Main {
 								ax = kitaplar.indexOf(kitap1);
 							}
 						}
-						if (ax < 0) {
-							System.out.println("\nGeçersiz ID..");
+						if (ax == 0) {
+							System.out.println("ID bulunamadı. Yeniden deneyin lütfen..");
 							continue cıkar;
 						}
 						kitaplar.remove(ax);
@@ -97,16 +97,15 @@ public class Main {
 				case 4:
 					duzenle: while (true) {
 						int ab = 0;
-						System.out.println("Düzenlemek istediğiniz kitabın kodunu girin: ");
+						System.out.println("Düzenlemek istediğiniz kitabın ID'sini girin: ");
 						int odunc1 = Integer.parseInt(scan.nextLine());
 						for (Kitap kitap2 : kitaplar) {
 							if (odunc1 == kitap2.getId()) {
 								ab = kitaplar.indexOf(kitap2);
 							}
 						}
-
-						if (ab < 0) {
-							System.out.println("\nID bulunamadı..");
+						if (ab == 0) {
+							System.out.println("ID bulunamadı. Yeniden deneyin lütfen..");
 							continue duzenle;
 						}
 						System.out.print("ID:");
@@ -114,7 +113,7 @@ public class Main {
 						if (id2 != odunc1) {
 							for (Kitap kitap : kitaplar) {
 								if (id2 == kitap.getId()) {
-									System.out.println("ID mevcut, değiştir lütfen...");
+									System.out.println("ID mevcut, lütfen değiştirin: ");
 									continue duzenle;
 								}
 							}
@@ -123,16 +122,16 @@ public class Main {
 						String ad1 = scan.nextLine();
 						System.out.println("Yazar adı: ");
 						String yazar2 = scan.nextLine();
-						System.out.println("yayainevi: ");
+						System.out.println("Yayınevi: ");
 						String yayinevi2 = scan.nextLine();
-						System.out.println("sayfa: ");
+						System.out.println("Sayfa: ");
 						String sayfa2 = scan.nextLine();
 						kitaplar.set(ab, new Kitap(id2, ad1, yazar2, yayinevi2, sayfa2));
-						System.out.println("Bilgiler guncellendi. Sıradaki işleminizi seçin: ");
+						System.out.println("Bilgiler güncellendi. Sıradaki işleminizi seçin: ");
 						continue menu;
 					}
 				case 5:
-					System.out.println("Ödünç verilecek veya teslim alınacak kitabın kodunu giriniz: ");
+					System.out.println("Ödünç verilecek veya teslim alınacak kitabın ID'sini giriniz: ");
 					int c = 0;
 					int oduncx = Integer.parseInt(scan.nextLine());
 					for (Kitap kitap2 : kitaplar) {
@@ -184,7 +183,8 @@ public class Main {
 
 					if (sayac2 == 0) {
 
-						System.out.println("\nGirdiğiniz veriyle ilgili herhangi bir sonuç bulunamamıştır.");
+						System.out.println(
+								"\nGirdiğiniz veriyle ilgili herhangi bir sonuç bulunamamıştır. Sıradaki işleminizi seçiniz: ");
 					}
 					continue;
 
